@@ -1,0 +1,240 @@
+
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <template>I have no answer for that. Try starting with 'Hello', or 'Hi'</template>
+  </category>
+  
+
+
+<category>
+<pattern>HELLO ^</pattern>
+<template><srai>HI</srai></template>
+</category>
+
+<category>
+<pattern>HI THERE ^</pattern>
+<template><srai>HI</srai></template>
+</category>
+
+<category>
+<pattern>HOWDY ^</pattern>
+<template><srai>HI</srai></template>
+</category>
+
+<category>
+<pattern>HEY ^</pattern>
+<template><srai>HI</srai></template>
+</category>
+
+
+    <category>
+    <pattern>HI ^</pattern>
+    <template>Hello there! Welcome to the career assist system. Lets start with an <set name = "topic">introduction</set>.. My name is Stan, what is your name? </template>
+    </category>
+
+ <topic name = "introduction">
+    <category>
+    <pattern>My name is *</pattern>
+    <template>Nice to meet you, <set name ="name"><star/></set>! What would you like to do next? I can list some general career options, or you can answer some questions and I will recommend a career path for you. </template>
+    </category>
+
+    <category>
+    <pattern>My name is *</pattern>
+    <template>Nice to meet you, <set name ="name"><star/></set>!  What would you like to do next? I can list some general career options, or you can answer some questions and I will recommend a career path for you.</template>
+    </category>
+
+    <category>
+    <pattern>it is *</pattern>
+    <template>Nice to meet you, <set name ="name"><star/> </set>!  What would you like to do next? I can list some general career options, or you can answer some questions and I will recommend a career path for you.</template>
+    </category>
+    
+    <category>
+    <pattern>*</pattern>
+    <template>Nice to meet you, <set name ="name"><star/></set>!  What would you like to do next? I can list some general career options, or you can answer some questions and I will recommend a career path for you.
+    <button>
+    <text>Questions</text>
+    <postback>next</postback>
+</button>
+<button>
+    <text>List</text>
+    <postback>List</postback>
+</button>
+</template>
+    </category>
+    
+</topic>
+
+
+
+<category>
+    <pattern>LIST ^</pattern>
+    <template> <get name="name" />, with your Computer Science degree you could choose any of the following careers... AND MORE!<br/>
+    -Data Scientist<br/>
+    -Network Engineer <br/>
+    -Software Developer<br/>
+    -Systems Analyst<br/>
+    -Clound Computing Engineer<br/>
+    -Information Security Analyst <br/>
+    -Mobile Application Developer<br/>
+    -Artificial Intelligence Engineer<br/>
+    And the List could go on! <br/>
+    If you would like a career suggestion click Next
+    <button>
+        <text>Next</text>
+        <postback>Next</postback>
+    </button>
+    </template>
+</category>
+
+<category>
+    <pattern>next ^</pattern>
+    <template>Do you want to primarily spend your day <set name ="topic">coding</set>?
+    <button>
+    <text>Yes</text>
+    <postback>yes</postback>
+</button>
+<button>
+    <text>No</text>
+    <postback>no</postback>
+</button>
+    
+    </template>
+</category>
+
+ <topic name = "coding">
+     <category>
+         <pattern>Yes ^</pattern>
+         <template>Wow! If you enjoy coding then these jobs may be for you!<br/>
+         -Software Engineer<br/>
+         -Web Developer<br/>
+         -Mobile Developer<br/>
+         Would you rather work on <set name ="topic">software</set> for mobile devices, desktop PCs, or work on developing websites? 
+         <button>
+    <text>Mobile Devices</text>
+    <postback>Mobile</postback>
+</button>
+<button>
+    <text>Desktop PC</text>
+    <postback>PC</postback>
+</button>
+<button>
+    <text>Websites</text>
+    <postback>Websites</postback>
+</button>
+         </template>
+     </category>
+     
+     <category>
+         <pattern>No ^</pattern>
+         <template>No worries! Coding isnt for everyone. Below are a few jobs that don't focus on coding.<br/>
+         -Data Analyst<br/>
+         -Network Administrator<br/>
+         Would you rather work hands on, or study <set name ="topic">data</set>?
+         <button>
+    <text>Study Data</text>
+    <postback>Study Data</postback>
+</button>
+<button>
+    <text>Work Hands On</text>
+    <postback>Hands</postback>
+</button>
+         </template>
+     </category>
+     
+ </topic>
+ 
+ <topic name = "software">
+     <category>
+         <pattern>mobile ^</pattern>
+         <template>Okay <get name="name" />, it sounds like Being a Mobile Developer is just the job for you!<br/>
+         <button>
+             <text>Mobile Developer</text>
+             <url>https://www.webopedia.com/TERM/M/mobile-developer.html</url>
+         </button>
+         
+         <button>
+             <text>Start Over</text>
+             <postback>Next</postback>
+         </button>
+         </template>
+     </category>
+     
+     <category>
+         <pattern>PC</pattern>
+         <template>Here we go <get name="name" />! If you don't wish to work on software for mobile devices, but you love coding, then being a Software Engineer May be just right for you!
+         <button>
+             <text>Software Engineer</text>
+             <url>https://en.wikipedia.org/wiki/Software_engineer</url>
+         </button>
+         
+         <button>
+             <text>Start Over</text>
+             <postback>Next</postback>
+         </button>
+         
+         </template>
+     </category>
+     
+     <category>
+         <pattern>Websites</pattern>
+         <template>Well <get name="name" />, if developing websites gets you excited, then a career as a Web Developer is what you should consider!
+         <button>
+             <text>Web Developer</text>
+             <url>https://en.wikipedia.org/wiki/Web_developer</url>
+         </button>
+         
+         <button>
+             <text>Start Over</text>
+             <postback>Next</postback>
+         </button>
+         
+         </template>
+     </category>
+     
+ </topic>
+ 
+  <topic name = "data">
+     <category>
+         <pattern>study data</pattern>
+         <template>Okay <get name="name" />, well if studying data is what you're excited about, then being a Data Analyst would be perfect for you!
+         <button>
+             <text>data Analyst</text>
+             <url>https://www.northeastern.edu/graduate/blog/what-does-a-data-analyst-do/</url>
+         </button>
+         
+         <button>
+             <text>Start Over</text>
+             <postback>Next</postback>
+         </button>
+         
+         </template>
+     </category>
+     
+     <category>
+    <pattern>data *</pattern>
+    <template><srai>study data</srai></template>
+    </category>
+    
+     
+     <category>
+         <pattern>*</pattern>
+         <template>No worries <get name="name" />, studying data isn't for everyone. If you're looking to be more hands on, then a career as a Network Administrator is just for you!
+         <button>
+             <text>Network Administrator</text>
+             <url>https://en.wikipedia.org/wiki/Network_administrator</url>
+         </button>
+         
+         <button>
+             <text>Start Over</text>
+             <postback>Next</postback>
+         </button>
+         
+         </template>
+     </category>
+     
+ </topic>
+ 
+ 
+</aiml>
+
