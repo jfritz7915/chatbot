@@ -1,9 +1,17 @@
 
 <aiml>
-  <category>
+    
+<category>
     <pattern>*</pattern>
-    <template>I have no answer for that. Try starting with 'Hello', or 'Hi'</template>
-  </category>
+<template><random>
+<li>Hmmm. Let's try starting with Hello</li>
+<li>Ok I'll start.. Hi!</li>
+<li>Well, I'm not sure what to say to that. Lets start with Hello... Hello There</li>
+<li>It's polite to start a conversation with a greeeting... Hey!</li>
+<li>There's great power in recognizing what you don't know.... Lets start with Hello</li>
+<li>Socrates was the wisest man because he knew what he didn't know... Hello</li>
+</random></template>
+</category>
   
 
 
